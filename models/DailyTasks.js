@@ -2,14 +2,14 @@ const { Model, DataTypes } = require('sequelize'); // object mapping of sql db
 const bcrypt = require('bcrypt'); //hashing function to build password security
 const sequelize = require('../config/connection'); //connect to database
 
-class Plant extends Model {
+class DailyTasks extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
 
-Plant.init(
+DailyTasks.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -21,7 +21,6 @@ Plant.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
   },
   {
     hooks: {
@@ -38,4 +37,4 @@ Plant.init(
   }
 );
 
-module.exports = Plant;
+module.exports = DailyTasks;
