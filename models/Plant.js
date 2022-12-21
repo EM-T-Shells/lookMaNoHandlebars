@@ -1,13 +1,7 @@
-const { Model, DataTypes } = require('sequelize'); // object mapping of sql db
-const bcrypt = require('bcrypt'); //hashing function to build password security
-const sequelize = require('../config/connection'); //connect to database
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-class Plant extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
-
+class Plant extends Model {}
 
 Plant.init(
   {
@@ -17,24 +11,71 @@ Plant.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    common_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
-  },
-  {
-    hooks: {
-      beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
+    scientific_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    growth_habit: {
+        // shrub, groundcover, herb, tree, climber
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    life_cycle: {
+        // annual or perennial
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    light_reqs: {
+        // Sun, partial sun, partial shade, shade
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    water_reqs: {
+        // Low medium high
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    soil_reqs: {
+        // rocky, caliche, sandy, loam, clay, silt
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    mature_size: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    leaf_retention: {
+        // Deciduous or evergreen
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    bloom_time: {
+        // a range like March - October
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    date_planted: {
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
       },
     },
+  },
+  {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'plant',
   }
 );
 
