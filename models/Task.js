@@ -2,14 +2,14 @@ const { Model, DataTypes } = require('sequelize'); // object mapping of sql db
 const bcrypt = require('bcrypt'); //hashing function to build password security
 const sequelize = require('../config/connection'); //connect to database
 
-class Observations extends Model {
+class Task extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
 
-Observations.init(
+Task.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -37,4 +37,4 @@ Observations.init(
   }
 );
 
-module.exports = Observations;
+module.exports = Task;
