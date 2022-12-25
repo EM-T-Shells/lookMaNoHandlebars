@@ -3,14 +3,25 @@ const { Plant, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // when we log in, go to the all plants page
+// router.get('/', (req, res) => {
+//   // if (req.session.loggedIn) {
+//   //   res.redirect('/profile');
+//   //   return;
+//   // }
+//   res.render('homepage');
+// });
+
 router.get('/', (req, res) => {
-  // if (req.session.loggedIn) {
-  //   res.redirect('/plants');
-  //   return;
-  // }
+  console.log("loggedin", req.session.loggedIn)
+  if (req.session.loggedIn) {
+    res.redirect('/profile');
+    return;
+  }
   res.render('homepage');
 });
+
 router.get('/profile', (req, res) => {
   res.render('profile')
-})
+});
+
 module.exports = router;
