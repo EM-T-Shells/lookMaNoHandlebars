@@ -4,23 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Garden</title>
-  <link rel="stylesheet" href="/css/jass.css">
+  <title>Plant Parenthood</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      My Garden
-    </h1>
-  </header>
-  <main class="container container-fluid mt-5">
-    <!-- Render the contents of the sub layout here -->
-    {{{ body }}}
-  </main>
-  <footer>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <a class="navbar-brand" href="/">Plant Parenthood</a>
 
-  </footer>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="/">Homepage</a>
+            {{#if loggedIn}}
+            <a class="nav-link" href="/dashboard">My Garden</a>
+            <a class="nav-link" href="/" id="logout">Sign Out</a>
+            {{else}}
+            <a class="nav-link" href="/login">Sign In</a>
+            <a class="nav-link" href="/login">Sign Up</a>
+            {{/if}}
+          </div>
+        </div>
+      </nav>
+
+<div class="container">
+     {{{body}}}
+</div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
