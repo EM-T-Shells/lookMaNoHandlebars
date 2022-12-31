@@ -1,6 +1,6 @@
 const sequelize = require('../config/connection');
 const { Plant } = require('../models');
-const { Tasks } = require('../models');
+const { Task } = require('../models');
 
 const plantData = require('./plantData.json');
 const taskData = require('./taskData.json')
@@ -13,7 +13,7 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  await Tasks.bulkCreate(taskData, {
+  await Task.bulkCreate(taskData, {
     individualHooks: true,
     returning: true,
   });

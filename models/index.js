@@ -1,23 +1,23 @@
 const User = require('./User');
-const Task = require('./Task');
 const Plant = require('./Plant');
-
-User.hasMany(Task, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-  });
-  
-Task.belongsTo(User, {
-    foreignKey: 'user_id'
-  });
+const Task = require('./Task');
 
 User.hasMany(Plant, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-  });
-  
-Plant.belongsTo(User, {
-    foreignKey: 'user_id'
-  });
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
 
-module.exports = { Task, Plant, User };
+Plant.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
+// User.hasMany(Task, {
+//     foreignKey: 'user_id',
+//     onDelete: 'CASCADE'
+//   });
+  
+// Task.belongsTo(User, {
+//     foreignKey: 'user_id'
+//   });
+
+module.exports = { User, Plant };

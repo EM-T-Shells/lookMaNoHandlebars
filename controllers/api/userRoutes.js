@@ -4,7 +4,10 @@ const { User } = require('../../models');
 // create user
 router.post('/', async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    const userData = await User.create({
+      username: req.body.username,
+      password: req.body.password,
+    });
 
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -18,14 +21,14 @@ router.post('/', async (req, res) => {
 });
 
 // login
-router.post('/', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    const userData = await User.findOne({ where: { username: req.body.username } });
 
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
 
@@ -34,7 +37,7 @@ router.post('/', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
 
@@ -60,32 +63,5 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-
-// get plant by id
-router.get('/plants/:id', async (req, res) => {
-  try {
-    const plantData = await Plant.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ["username"] }]
-    });
-    const plant = plantData.get({ plain: true });
-   
-    res.render('plant', { ...plant, loggedIn: req.session.logged_in });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-// get all plants
-router.get('/profile', async (req, res) => {
-    try {
-      const allPlants = await Plant.findAll( { include: [ { model: User }]});
-      const plants = allPlants.map((plant) =>
-      plant.get({ plain: true }));
-      res.render('profile', { plants, loggedIn: req.session.logged_in })
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  })
 
 module.exports = router;

@@ -20,7 +20,7 @@ Plant.init(
       allowNull: false,
     },
     growth_habit: {
-        // shrub, groundcover, herb, tree, climber
+        // shrub, groundcover, herb, tree, climber, grass, cactus
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -39,28 +39,10 @@ Plant.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
-    soil_reqs: {
-        // rocky, caliche, sandy, loam, clay, silt
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    mature_size: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    leaf_retention: {
-        // Deciduous or evergreen
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    bloom_time: {
-        // a range like March - October
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    date_planted: {
+    date_created: {
         type: DataTypes.DATE,
         allowNull: false,
+        defaultValue: DataTypes.NOW,
     },
     user_id: {
       type: DataTypes.INTEGER,
