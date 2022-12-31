@@ -6,7 +6,7 @@ const plantFormHandler = async (event) => {
   const growth_habit = document.querySelector('input[name = "growth-habit"]:checked').value;
   const life_cycle = document.querySelector('input[name = "life-cycle"]:checked').value;
   const light_reqs = document.querySelector('#light-reqs').value.trim();
-  const water_reqs = document.querySelector('#water-reqs').value.trim();
+  const water_reqs = document.querySelector('input[name = "water-reqs"]:checked').value;
 
   if (common_name && scientific_name) {
     const response = await fetch('/api/plants/', {
