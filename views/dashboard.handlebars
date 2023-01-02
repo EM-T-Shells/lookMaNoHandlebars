@@ -90,11 +90,11 @@
                 </div>
               </div>
         </div>
+</div>
 
 
 <!--existing plants-->
 {{#each plants as |plant|}}
-
   <div class="card border-dark m-3" style="width:20rem;">
     <div class="card-header text-center">
       {{common_name}}
@@ -103,13 +103,10 @@
         <img class="card-img-bottom" src="../public/images/{{growth_habit}}.png">
     </a>
    </div>
-
 {{/each}}
 
 {{else}}
 <a href="/login">You must login first to view this page</a>
 {{/if}}
-
-
 
 <script src="/js/dashboard.js"></script>
