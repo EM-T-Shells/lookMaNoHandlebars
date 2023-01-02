@@ -12,10 +12,24 @@ Task.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    watered: {
+      type: DataTypes.BOOLEAN,
     },
+    pruned: {
+      type: DataTypes.BOOLEAN,
+    },
+    fertilized: {
+      type: DataTypes.BOOLEAN,
+    },
+    transplanted: {
+      type: DataTypes.BOOLEAN,
+    },            
+    harvested: {
+      type: DataTypes.BOOLEAN,
+    },
+    applied: {
+      type: DataTypes.BOOLEAN,
+    },  
   },
   {
     sequelize,
