@@ -91,26 +91,20 @@
               </div>
         </div>
 
+
 <!--existing plants-->
 {{#each plants as |plant|}}
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card border-dark mb-3">
-        <div class="card-header text-center">
-          {{common_name}}
-        </div>
-        <div class="card-body">
-          
-          <a href="/plants/{{id}}" class="btn btn-light border border-dark"><img class="card-img-bottom" src="/public/images/{{growth_habit}}.png"></a>
-        </div>
-  
-      </div>
+  <div class="card border-dark m-3" style="width:20rem;">
+    <div class="card-header text-center">
+      {{common_name}}
     </div>
-  </div>
-</div>
-         {{/each}}
+    <a href="/plants/{{id}}">
+        <img class="card-img-bottom" src="../public/images/{{growth_habit}}.png">
+    </a>
+   </div>
+
+{{/each}}
 
 {{else}}
 <a href="/login">You must login first to view this page</a>
