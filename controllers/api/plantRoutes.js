@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Plant } = require('../../models');
+const { Plant, Task, Note } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // update plant
@@ -24,7 +24,6 @@ router.put('/:id', withAuth, async (req, res) => {
 
 // create plant
 router.post('/', withAuth, async (req, res) => {
-  console.log(req.body)
   try {
     const newPlant = await Plant.create({
       ...req.body,
@@ -32,6 +31,37 @@ router.post('/', withAuth, async (req, res) => {
     });
 
     res.status(200).json(newPlant);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// add task
+router.post('/', withAuth, async (req, res) => {
+  console.log("task request body: ", req.body)
+  try {
+    const newTask = await Task.create({
+      ...req.body,
+      user_id: req.session.user_id,
+      plant_id: req.body.plant_id,
+    });
+
+    res.status(200).json(newTask);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// add note
+router.post('/', withAuth, async (req, res) => {
+  console.log("note request body: ", req.body)
+  try {
+    const newNote = await Note.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newNote);
   } catch (err) {
     res.status(400).json(err);
   }

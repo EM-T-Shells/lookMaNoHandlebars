@@ -29,20 +29,24 @@ if (applied.checked) {
   bodyObject.applied = applied.value;
 }
 
-  if (watered.checked || pruned || fertilized || transplanted || harvested || applied) {
-    const response = await fetch('/api/tasks/', {
+  if (watered.checked || pruned.checked || fertilized.checked || transplanted.checked || harvested.checked || applied.checked) {
+    const response = await fetch('/api/plants/', {
       method: 'POST',
       body: JSON.stringify(bodyObject),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace('/api/plants/${id}');
+      document.location.replace(`/api/plants/${id}`);
     } else {
       alert('Failed to add tasks.');
     }
   }
 };
+
+document
+.querySelector('.task-form')
+.addEventListener('submit', submitTaskHandler);
 
 // add notes
 const addNoteHandler = async (event) => {
@@ -52,7 +56,7 @@ const addNoteHandler = async (event) => {
   const plant_id = document.querySelector('.note-button').getAttribute('id');
 
   if (note) {
-    const response = await fetch('/api/notes', {
+    const response = await fetch('/api/plants', {
       method: 'POST',
       body: JSON.stringify({ note, plant_id }),
       headers: { 'Content-Type': 'application/json' },
@@ -65,11 +69,10 @@ const addNoteHandler = async (event) => {
     }
   }
 };
-
-
 document
-  .querySelector('.task-form')
-  .addEventListener('submit', submitTaskHandler);
+.querySelector('.note-form')
+.addEventListener('submit', addNoteHandler);
+
 
 // update plant
 const updatePlantHandler = async (event) => {
@@ -79,8 +82,8 @@ const updatePlantHandler = async (event) => {
   const scientific_name = document.querySelector('#scientific-name').value.trim();
   const growth_habit = document.querySelector('input[name = "growth-habit"]:checked').value;
   const life_cycle = document.querySelector('input[name = "life-cycle"]:checked').value;
-  const light_reqs = document.querySelector('input[name = "sun-reqs"]:checked').value
-  const water_reqs = document.querySelector('#water-reqs').value.trim();
+  const light_reqs = document.querySelector('input[name = "sun-reqs"]:checked').value;
+  const water_reqs = document.querySelector('#water-reqs').value;
 
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
