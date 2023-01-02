@@ -79,7 +79,7 @@
               <label for="common-name">Add note</label>
               <input type="form-input" class="form-control" id="add-note">
             </div>
-            <button type="submit" class="btn btn-light border border-dark mt-3">Add</button>
+            <button type="submit" class="btn btn-light border border-dark mt-3 note-button" id="{{id}}">Add</button>
             <hr>
           {{#each notes as |note|}}
           {{> note-details}}

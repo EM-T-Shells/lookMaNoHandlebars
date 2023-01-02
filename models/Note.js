@@ -14,11 +14,18 @@ Note.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    content: {
+    note: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    plant_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'plant',
+        key: 'id',
+      },    
   },
+},
   {
     sequelize,
     timestamps: false,
