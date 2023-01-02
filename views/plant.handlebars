@@ -26,42 +26,68 @@
         <div class="card-header">
           Tasks
         </div>
-        <div class="card-body">
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="watered">
-            <label class="custom-control-label" for="watered">Watered</label>
+        <form class="task-form">
+          <div class="card-body">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="watered">
+              <label class="custom-control-label" for="watered">Watered</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="pruned">
+              <label class="custom-control-label" for="pruned">Pruned</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="fertilized">
+              <label class="custom-control-label" for="fertilized">Fertilized</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="transplanted">
+              <label class="custom-control-label" for="transplanted">Transplanted</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="harvested">
+              <label class="custom-control-label" for="harvested">Harvested</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="applied">
+              <label class="custom-control-label" for="applied">Applied insecticide/fungicide</label>
+            </div>
+            <button type="submit" class="btn btn-light border border-dark mt-3">Submit</button>
+            <hr>
+            <p class="card-text"><b>Watered: </b>{{task.watered}}</p>
+            <p class="card-text"><b>Pruned: </b>{{task.pruned}}</p>
+            <p class="card-text"><b>Fertilized: </b>{{task.fertilized}}</p>
+            <p class="card-text"><b>Transplanted: </b>{{task.transplanted}}</p>
+            <p class="card-text"><b>Harvested: </b>{{task.harvested}}</p>
+            <p class="card-text"><b>Applied: </b>{{task.applied}}</p>
           </div>
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="pruned">
-            <label class="custom-control-label" for="pruned">Pruned</label>
-          </div>
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="fertilized">
-            <label class="custom-control-label" for="fertilized">Fertilized</label>
-          </div>
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="transplanted">
-            <label class="custom-control-label" for="transplanted">Transplanted</label>
-          </div>
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="harvested">
-            <label class="custom-control-label" for="harvested">Harvested</label>
-          </div>
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="applied">
-            <label class="custom-control-label" for="applied">Applied insecticide/fungicide</label>
-          </div>
-          <button type="submit" class="btn btn-light border border-dark mt-3">Submit</button>
-          <hr>
-          <p class="card-text"><b>Watered: </b>{{task.watered}}</p>
-          <p class="card-text"><b>Pruned: </b>{{task.pruned}}</p>
-          <p class="card-text"><b>Fertilized: </b>{{task.fertilized}}</p>
-          <p class="card-text"><b>Transplanted: </b>{{task.transplanted}}</p>
-          <p class="card-text"><b>Harvested: </b>{{task.harvested}}</p>
-          <p class="card-text"><b>Applied: </b>{{task.applied}}</p>
-        </div>
+        </form>
       </div>
     </div>
   </div>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card border-dark mb-3">
+        <div class="card-header">
+          Notes
+        </div>
+        <form class="note-form">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="common-name">Add note</label>
+              <input type="form-input" class="form-control" id="add-note">
+            </div>
+            <button type="submit" class="btn btn-light border border-dark mt-3">Add</button>
+            <hr>
+          {{#each notes as |note|}}
+          {{> note-details}}
+          {{/each}}
+        </form>
+      </div>
+    </div>
+  </div>
+  
 
   <script src="/js/plant.js"></script>

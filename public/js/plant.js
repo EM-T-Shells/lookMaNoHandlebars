@@ -1,3 +1,34 @@
+// submit tasks
+const submitTaskHandler = async (event) => {
+  event.preventDefault();
+
+  const watered = document.querySelector('input[name = "watered"]:checked').value;
+  const pruned = document.querySelector('input[name = "pruned"]:checked').value;
+  const fertilized = document.querySelector('input[name = "fertilized"]:checked').value;
+  const transplanted = document.querySelector('input[name = "transplanted"]:checked').value;
+  const harvested = document.querySelector('input[name = "harvested"]:checked').value;
+  const applied = document.querySelector('input[name = "applied"]:checked').value;
+
+  if (watered || pruned || fertilized || transplanted || harvested || applied) {
+    const response = await fetch('/api/tasks/', {
+      method: 'POST',
+      body: JSON.stringify({ watered, pruned, fertilized, transplanted, harvested, applied }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.replace('/api/plants/${id}');
+    } else {
+      alert('Failed to add tasks.');
+    }
+  }
+};
+
+
+document
+  .querySelector('.task-form')
+  .addEventListener('submit', submitTaskHandler);
+
 // update plant
 const updatePlantHandler = async (event) => {
   event.preventDefault();
@@ -6,7 +37,7 @@ const updatePlantHandler = async (event) => {
   const scientific_name = document.querySelector('#scientific-name').value.trim();
   const growth_habit = document.querySelector('input[name = "growth-habit"]:checked').value;
   const life_cycle = document.querySelector('input[name = "life-cycle"]:checked').value;
-  const light_reqs = document.querySelector('#light-reqs').value.trim();
+  const light_reqs = document.querySelector('input[name = "sun-reqs"]:checked').value
   const water_reqs = document.querySelector('#water-reqs').value.trim();
 
   if (event.target.hasAttribute('data-id')) {
