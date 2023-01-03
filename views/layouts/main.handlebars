@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plant Parenthood</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Parenthood</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-        <a class="navbar-brand" href="/">Plant Parenthood</a>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+          <a class="navbar-brand" href="/">Plant Parenthood</a>
 
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link" href="/">Homepage</a>
-            {{#if loggedIn}}
-            <a class="nav-link" href="/dashboard">My Garden</a>
-            <a class="nav-link" href="/" id="logout">Sign Out</a>
-            {{else}}
-            <a class="nav-link" href="/login">Sign In</a>
-            <a class="nav-link" href="/login">Sign Up</a>
-            {{/if}}
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="/">Homepage</a>
+              {{#if loggedIn}}
+              <a class="nav-link" href="/dashboard">My Garden</a>
+              <a class="nav-link" href="/" id="logout">Sign Out</a>
+              {{else}}
+              <a class="nav-link" href="/login">Sign In</a>
+              <a class="nav-link" href="/login">Sign Up</a>
+              {{/if}}
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
 
-<div class="container">
-     {{{body}}}
-</div>
+  <div class="container">
+      {{{body}}}
+  </div>
 
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
 
 </html>
