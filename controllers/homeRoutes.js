@@ -9,11 +9,7 @@ router.get('/plants/:id', async (req, res) => {
       include: [{ model: User, attributes: ["username"] }]
     });
     const plant = plantData.get({ plain: true });
-<<<<<<< HEAD
-
-=======
   console.log(plant)
->>>>>>> e60a9f9711c89ca34935cf797931fb2096a21bb8
     res.render('plant', { ...plant, loggedIn: req.session.logged_in });
   } catch (err) {
     console.log(err);
