@@ -31,7 +31,7 @@
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
           <!-- Modal content-->
-                  <div class="modal-content">
+          <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Modal Header</h4>
@@ -142,15 +142,14 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
-            </div>
-
+          </div>
         </div>
       </div>
     </div>
 
-    <!--existing plants card-img grid-->
+    <!--user plants grid-->
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 my-4 mx-auto">
-      <!--     {{#each plants as |plant|}} -->
+      {{#each plants as |plant|}}
       <div class="card border-dark m-3" style="width:20rem;">
         <div class="card-header text-center">
           {{common_name}}
@@ -159,58 +158,11 @@
           <img class="card-img-bottom" src="../public/images/{{growth_habit}}.png">
         </a>
       </div>
-      <!--     {{/each}} -->
-
-      <!-- duplicate ? -->
-      <!--existing plants-->
-      <!--     {{#each plants as |plant|}} -->
-      <div class="card border-dark m-3" style="width:20rem;">
-        <div class="card-header text-center">
-          {{common_name}}
-        </div>
-        <a href="/plants/{{id}}">
-          <img class="card-img-bottom" src="/images/{{growth_habit}}.png">
-        </a>
-      </div>
-      <!--     {{/each}} -->
-
-      <!--     {{else}} -->
-      <a href="/login">You must login first to view this page</a>
-      <!--     {{/if}} -->
-    </div>
-
-    </div>
-    <!--existing plants card-img grid-->
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 my-4 mx-auto">
-      <!--     {{#each plants as |plant|}} -->
-      <div class="card border-dark m-3" style="width:20rem;">
-        <div class="card-header text-center">
-          {{common_name}}
-        </div>
-        <a href="/plants/{{id}}">
-          <img class="card-img-bottom" src="../public/images/{{growth_habit}}.png">
-        </a>
-      </div>
-      <!--     {{/each}} -->
-
-      <!-- duplicate ? -->
-      <!--existing plants-->
-      <!--     {{#each plants as |plant|}} -->
-      <div class="card border-dark m-3" style="width:20rem;">
-        <div class="card-header text-center">
-          {{common_name}}
-        </div>
-        <a href="/plants/{{id}}">
-          <img class="card-img-bottom" src="/images/{{growth_habit}}.png">
-        </a>
-      </div>
-      <!--     {{/each}} -->
-
-      <!--     {{else}} -->
-      <a href="/login">You must login first to view this page</a>
-      <!--     {{/if}} -->
+      {{/each}}
     </div>
   </div>
+{{else}}
+  <a href="/login">You must login first to view this page</a>
 {{/if}}
 
 <script src="/js/dashboard.js"></script>
