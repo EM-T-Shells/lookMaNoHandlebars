@@ -11,10 +11,10 @@ const plantFormHandler = async (event) => {
   let light_reqs = "";
   for (let i = 0; i < lightReqsEl.length; i++) {
     if (lightReqsEl[i].checked) {
-      light_reqs += lightReqsEl[i].value + "\n"
+      light_reqs += lightReqsEl[i].value + ", "
     }
-
   }
+
   if (common_name && scientific_name) {
     const response = await fetch('/api/plants/', {
       method: 'POST',

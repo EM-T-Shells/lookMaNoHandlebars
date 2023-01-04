@@ -5,20 +5,19 @@ const withAuth = require('../../utils/auth');
 // update plant
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const plantData = await Plant.update({
+    const plantData = await Plant.update(req.body, {
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
-
     if (!plantData) {
       res.status(404).json({ message: 'No plant found with this id!'});
       return;
     }
-    res.status(200).json(planttData);
+    res.status(200).json(plantData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err);  
   }
 });
 
