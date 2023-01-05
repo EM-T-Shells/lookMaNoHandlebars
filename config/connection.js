@@ -1,3 +1,4 @@
+// Initialize Sequelize //
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
