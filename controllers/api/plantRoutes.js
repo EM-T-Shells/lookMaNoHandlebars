@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Plant, Task } = require('../../models');
+const { Plant, Task, Note } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // update plant
@@ -51,17 +51,20 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// show completed tasks
-router.get('/', async (req, res) => {
+// add note
+router.post('/', withAuth, async (req, res) => {
+  console.log("note request body: ", req.body)
   try {
-    const allTasks = await Task.findAll( { include: [ { model: User }]});
-    const tasks = allTasks.map((task) =>
-    task.get({ plain: true }));
-    res.render('plant', { tasks, loggedIn: req.session.logged_in })
+    const newNote = await Note.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newNote);
   } catch (err) {
     res.status(400).json(err);
   }
-})
+});
 
 // delete plant
 router.delete('/:id', withAuth, async (req, res) => {

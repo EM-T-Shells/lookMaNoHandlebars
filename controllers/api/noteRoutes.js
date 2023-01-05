@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Note } = require('../../models');
+const { Note, User, Plant } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // create note
@@ -16,18 +16,6 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
-
-// show notes
-router.get('/', async (req, res) => {
-  try {
-    const allNotes = await Note.findAll( { include: [ { model: User }]});
-    const notes = allNotes.map((note) =>
-    note.get({ plain: true }));
-    res.render('note-details', { notes, loggedIn: req.session.logged_in })
-  } catch (err) {
-    res.status(400).json(err);
-  }
-})
 
 // // delete note
 // router.delete('/:id', withAuth, async (req, res) => {
