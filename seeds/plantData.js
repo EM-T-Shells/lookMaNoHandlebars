@@ -6,9 +6,82 @@ const plantdata = [
     "scientific_name": "Tecoma stans",
     "growth_habit": "Shrub",
     "life_cycle": "Perennial",
+    "light_reqs": "Full sun, Part shade",
+    "water_reqs": "Low",
+    "user_id": "1"
+  },
+  {
+    "common_name": "Fragrant Mimosa",
+    "scientific_name": "Mimosa borealis",
+    "growth_habit": "Shrub",
+    "life_cycle": "Perennial",
+    "light_reqs": "Full sun, Part shade, Full shade",
+    "water_reqs": "Low",
+    "user_id": "1"
+  },
+  {
+    "common_name": "Yaupon Holly",
+    "scientific_name": "Ilex vomitoria",
+    "growth_habit": "Tree",
+    "life_cycle": "Perennial",
     "light_reqs": "Full sun, Part Shade",
-    "water_reqs": "Low"
-  }
+    "water_reqs": "Low",
+    "user_id": "1"
+  },
+  {
+    "common_name": "Yellow Sneezeweed",
+    "scientific_name": "Helenium amarum",
+    "growth_habit": "Herb",
+    "life_cycle": "Annual",
+    "light_reqs": "Part Shade",
+    "water_reqs": "Low",
+    "user_id": "1"
+  },
+  {
+    "common_name": "Globe Amaranth",
+    "scientific_name": "Gomphrena haageana",
+    "growth_habit": "Herb",
+    "life_cycle": "Perennial",
+    "light_reqs": "Full sun",
+    "water_reqs": "Medium",
+    "user_id": "1"
+  },    
+  {
+    "common_name": "Century Plant",
+    "scientific_name": "Agave americana",
+    "growth_habit": "Cactus",
+    "life_cycle": "Perennial",
+    "light_reqs": "Full sun",
+    "water_reqs": "Low",
+    "user_id": "1"
+  },    
+  {
+    "common_name": "Scarlet Creeper",
+    "scientific_name": "Ipomoea hederifolia",
+    "growth_habit": "Vine",
+    "life_cycle": "Annual",
+    "light_reqs": "Full sun",
+    "water_reqs": "Medium",
+    "user_id": "1"
+  },  
+  {
+    "common_name": "Big Bluestem",
+    "scientific_name": "Andropogon gerardii",
+    "growth_habit": "Grass",
+    "life_cycle": "Perennial",
+    "light_reqs": "Full sun, Part Shade",
+    "water_reqs": "Medium",
+    "user_id": "1"
+  }, 
+  {
+    "common_name": "Silver Ponyfoot",
+    "scientific_name": "Dichondra argentea",
+    "growth_habit": "Groundcover",
+    "life_cycle": "Perennial",
+    "light_reqs": "Full sun, Part Shade",
+    "water_reqs": "Medium",
+    "user_id": "1"
+  },     
 ];
 
 const seedPlants = () => Plant.bulkCreate(plantdata);
