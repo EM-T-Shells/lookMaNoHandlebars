@@ -7,7 +7,7 @@ const updatePlantHandler = async (event) => {
     const life_cycle = document.querySelector('input[name = "life-cycle"]:checked').value;
     const lightReqsEl = document.querySelectorAll('input[name = "sun-reqs"]');
     const water_reqs = document.querySelector('input[name = "water-reqs"]:checked').value;
-  
+
     let light_reqs = "";
     for (let i = 0; i < lightReqsEl.length; i++) {
       if (lightReqsEl[i].checked) {
@@ -32,8 +32,6 @@ console.log(event.target)
       }
     }
   };
-
-
 document
 .querySelector('.update-button')
 .addEventListener('click', updatePlantHandler);

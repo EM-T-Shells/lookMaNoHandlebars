@@ -1,3 +1,4 @@
+// express server setup //
 const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
@@ -28,10 +29,14 @@ const sess = {
 };
 
 app.use(session(sess));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// 1/4 @ 22:45 - et //
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+
 
 app.use(routes);
 

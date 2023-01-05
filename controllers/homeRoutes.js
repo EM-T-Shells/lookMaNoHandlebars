@@ -2,17 +2,21 @@ const router = require('express').Router();
 const { Plant, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get plant by id
+// get plant by id 
 router.get('/plants/:id', async (req, res) => {
   try {
     const plantData = await Plant.findByPk(req.params.id, {
       include: [{ model: User, attributes: ["username"] }]
     });
+
     const plant = plantData.get({ plain: true });
-  console.log(plant)
-    res.render('plant', { ...plant, loggedIn: req.session.logged_in });
+    console.log(plant);
+
+    res.render('plant', {
+      ...plant,
+      loggedIn: req.session.logged_in
+    });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });

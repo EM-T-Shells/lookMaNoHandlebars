@@ -2,95 +2,103 @@
 
 {{> update}}
 
-<div class="row">
-  <div class="col-md-6">
-    <div class="card border-dark mb-3">
-      <div class="card-header">
-        Details
-      </div>
-      <div class="card-body">
-        <p class="card-text"><b>Scientific Name: </b>{{scientific_name}}</p>
-        <p class="card-text"><b>Growth Habit: </b>{{growth_habit}}</p>
-        <p class="card-text"><b>Life Cycle: </b>{{life_cycle}}</p>
-        <p class="card-text"><b>Light Requirements: </b>{{light_reqs}}</p>
-        <p class="card-text"><b>Water Requirements: </b>{{water_reqs}}</p>
-      </div>
-      <div class="card-footer"><small class="text-muted"><a href="#" class="update-post" data-toggle="modal" data-target="#updateModal">Update</a> |
-          <a href="#" class="delete-post" data-id="{{id}}">Delete</a> </small></div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="container">
-  <div class="row">
+<div id="plantPage" class="container">
+  <div class="row bg-dark">
     <div class="col-md-6">
       <div class="card border-dark mb-3">
         <div class="card-header">
-          Tasks
+          Details
         </div>
-        <form class="task-form">
-          <div class="card-body">
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="watered">
-              <label class="custom-control-label" for="watered">Watered</label>
+        <div class="card-body">
+          <p class="card-text"><b>Scientific Name: </b>{{scientific_name}}</p>
+          <p class="card-text"><b>Growth Habit: </b>{{growth_habit}}</p>
+          <p class="card-text"><b>Life Cycle: </b>{{life_cycle}}</p>
+          <p class="card-text"><b>Light Requirements: </b>{{light_reqs}}</p>
+          <p class="card-text"><b>Water Requirements: </b>{{water_reqs}}</p>
+        </div>
+        <div class="container">
+          <div class="card-footer">
+            <small class="update-plant text-muted">
+              <a href="#" class="update-post" data-toggle="modal" data-target="#updateModal">Update</a> |
+              <!--  <a> tag's method is always GET  -->
+            </small>
+            <div class="col-md-4">
+              <button class="del-btn btn btn-sm btn-danger" data-id="{{id}}">DELETE</button>
             </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="pruned">
-              <label class="custom-control-label" for="pruned">Pruned</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="fertilized">
-              <label class="custom-control-label" for="fertilized">Fertilized</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="transplanted">
-              <label class="custom-control-label" for="transplanted">Transplanted</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="harvested">
-              <label class="custom-control-label" for="harvested">Harvested</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="applied">
-              <label class="custom-control-label" for="applied">Applied insecticide/fungicide</label>
-            </div>
-            <button type="submit" class="btn btn-light border border-dark mt-3">Submit</button>
-            <hr>
-            <p class="card-text"><b>Watered: </b>{{task.watered}}</p>
-            <p class="card-text"><b>Pruned: </b>{{task.pruned}}</p>
-            <p class="card-text"><b>Fertilized: </b>{{task.fertilized}}</p>
-            <p class="card-text"><b>Transplanted: </b>{{task.transplanted}}</p>
-            <p class="card-text"><b>Harvested: </b>{{task.harvested}}</p>
-            <p class="card-text"><b>Applied: </b>{{task.applied}}</p>
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card border-dark mb-3">
-        <div class="card-header">
-          Notes
         </div>
-        <form class="note-form">
-          <div class="card-body">
-            <div class="form-group">
-              <label for="common-name">Add note</label>
-              <input type="form-input" class="form-control" id="add-note">
-            </div>
-            <button type="submit" class="btn btn-light border border-dark mt-3 note-button" id="{{id}}">Add</button>
-            <hr>
-          {{#each notes as |note|}}
-          {{> note-details}}
-          {{/each}}
-        </form>
       </div>
     </div>
   </div>
 
+  <div class="plant-tasks-notes container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card border-dark mb-3">
+          <div class="card-header">
+            Tasks
+          </div>
+          <form class="task-form">
+            <div class="card-body">
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="watered">
+                <label class="custom-control-label" for="watered">Watered</label>
+              </div>
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="pruned">
+                <label class="custom-control-label" for="pruned">Pruned</label>
+              </div>
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="fertilized">
+                <label class="custom-control-label" for="fertilized">Fertilized</label>
+              </div>
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="transplanted">
+                <label class="custom-control-label" for="transplanted">Transplanted</label>
+              </div>
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="harvested">
+                <label class="custom-control-label" for="harvested">Harvested</label>
+              </div>
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="applied">
+                <label class="custom-control-label" for="applied">Applied insecticide/fungicide</label>
+              </div>
+              <button type="submit" class="btn btn-light border border-dark mt-3">Submit</button>
+              <hr>
+              <p class="card-text"><b>Watered: </b>{{task.watered}}</p>
+              <p class="card-text"><b>Pruned: </b>{{task.pruned}}</p>
+              <p class="card-text"><b>Fertilized: </b>{{task.fertilized}}</p>
+              <p class="card-text"><b>Transplanted: </b>{{task.transplanted}}</p>
+              <p class="card-text"><b>Harvested: </b>{{task.harvested}}</p>
+              <p class="card-text"><b>Applied: </b>{{task.applied}}</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card border-dark mb-3">
+          <div class="card-header">
+            Notes
+          </div>
+          <form class="note-form">
+            <div class="card-body">
+              <div class="form-group">
+                <label for="common-name">Add note</label>
+                <input type="form-input" class="form-control" id="add-note">
+              </div>
+              <button type="submit" class="btn btn-light border border-dark mt-3 note-button" id="{{id}}">Add</button>
+              <hr>
+              {{#each notes as |note|}}
+              {{> note-details}}
+              {{/each}}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <script src="/js/plant.js"></script>
+<script src="/js/plant.js"></script>
