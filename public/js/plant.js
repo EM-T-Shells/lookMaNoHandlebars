@@ -56,7 +56,7 @@ const addNoteHandler = async (event) => {
   const plant_id = document.querySelector('.note-button').getAttribute('id');
 
   if (note) {
-    const response = await fetch('/api/plants', {
+    const response = await fetch('/api/notes', {
       method: 'POST',
       body: JSON.stringify({ note, plant_id }),
       headers: { 'Content-Type': 'application/json' },
