@@ -16,24 +16,17 @@
           <p class="card-text"><b>Light Requirements: </b>{{light_reqs}}</p>
           <p class="card-text"><b>Water Requirements: </b>{{water_reqs}}</p>
         </div>
-
-        {{#if plants.length}}
         <div class="container">
-          {{#each plants as |plant|}}
-          <div class="plant-edit card-footer">
-            <small class="text-muted">
+          <div class="card-footer">
+            <small class="update-plant text-muted">
               <a href="#" class="update-post" data-toggle="modal" data-target="#updateModal">Update</a> |
               <!--  <a> tag's method is always GET  -->
             </small>
-            <div class="">
-              <button class="btn btn-danger" data-id="{{plant.id}}">DELETE</button>
+            <div class="col-md-4">
+              <button class="del-btn btn btn-sm btn-danger" data-id="{{id}}">DELETE</button>
             </div>
           </div>
-          {{/each}}
         </div>
-        {{/if}}
-
-
       </div>
     </div>
   </div>

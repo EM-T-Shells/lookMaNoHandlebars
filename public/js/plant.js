@@ -89,5 +89,5 @@ const delPlantHandler = async (event) => {
   }
 };
 document
-  .querySelector('.plant-edit')
+  .querySelector('.del-btn')
   .addEventListener('click', delPlantHandler);
