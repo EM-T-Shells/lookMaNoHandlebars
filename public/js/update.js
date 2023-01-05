@@ -11,7 +11,7 @@ const updatePlantHandler = async (event) => {
     let light_reqs = "";
     for (let i = 0; i < lightReqsEl.length; i++) {
       if (lightReqsEl[i].checked) {
-        light_reqs += lightReqsEl[i].value + "\n"
+        light_reqs += lightReqsEl[i].value + " "
       }
     }
 console.log("light reqs: ", light_reqs)
