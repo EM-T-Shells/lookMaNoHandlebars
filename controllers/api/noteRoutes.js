@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Note, User, Plant } = require('../../models');
+const { Note } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // create note

@@ -61,8 +61,7 @@ const addNoteHandler = async (event) => {
       body: JSON.stringify({ note, plant_id }),
       headers: { 'Content-Type': 'application/json' },
     });
-    
-    console.log("response: ", response)
+
     if (response.ok) {
       document.location.replace(`/plants/${plant_id}`);
     } else {
@@ -78,7 +77,7 @@ document
 const delPlantHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-    const response = await fetch(`/api/plants/${id}`, {
+    const response = await fetch(`api/plants/${id}`, {
       method: 'DELETE',
     });
 
