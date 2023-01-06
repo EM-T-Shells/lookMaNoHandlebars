@@ -30,6 +30,7 @@ router.get('/', async (req, res) => {
       const allPlants = await Plant.findAll( { include: [ { model: User }]});
       const plants = allPlants.map((plant) =>
       plant.get({ plain: true }));
+      console.log("plants", plants)
       res.render('homepage', { plants, loggedIn: req.session.logged_in })
     } catch (err) {
       res.status(400).json(err);
