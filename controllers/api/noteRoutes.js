@@ -7,7 +7,7 @@ router.post('/', withAuth, async (req, res) => {
   console.log(req.body)
   try {
     const newNote = await Note.create({
-      ...req.body,
+      note: req.body.note,
       user_id: req.session.user_id,
       plant_id: req.body.plant_id,
     });
@@ -16,6 +16,18 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+// get notes
+router.get('/', async (req, res) => {
+  try {
+    const allNotes = await Note.findAll();
+    const notes = allNotes.map((note) =>
+    note.get({ plain: true }));
+    res.json(notes);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+})
 
 // // delete note
 // router.delete('/:id', withAuth, async (req, res) => {

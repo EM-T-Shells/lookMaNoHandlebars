@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { Plant, User } = require('../models');
+const { Plant, User, Note } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get plant by id
 router.get('/plants/:id', async (req, res) => {
   try {
     const plantData = await Plant.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ["username"] }]
+      include: [{ model: User, attributes: ["username"] }, { model: Note, attributes: ["id", "note"], include: [{ model: User, attributes:[ "username"]}] }]
     });
     const plant = plantData.get({ plain: true });
   console.log(plant)
