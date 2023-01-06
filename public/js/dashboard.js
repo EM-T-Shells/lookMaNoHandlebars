@@ -15,7 +15,7 @@ const plantFormHandler = async (event) => {
     }
   }
 
-  if (common_name && scientific_name) {
+  if (common_name && scientific_name && growth_habit && life_cycle && light_reqs && water_reqs) {
     const response = await fetch('/api/plants/', {
       method: 'POST',
       body: JSON.stringify({ common_name, scientific_name, growth_habit, life_cycle, light_reqs, water_reqs }),

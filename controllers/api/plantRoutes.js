@@ -51,21 +51,6 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// add note
-router.post('/', withAuth, async (req, res) => {
-  console.log("note request body: ", req.body)
-  try {
-    const newNote = await Note.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-
-    res.status(200).json(newNote);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
 // delete plant
 router.delete('/:id', withAuth, async (req, res) => {
   try {

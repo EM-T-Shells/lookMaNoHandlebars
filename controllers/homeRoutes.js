@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Plant, User } = require('../models');
+const { Plant, User, Note } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get plant by id 
@@ -10,12 +10,15 @@ router.get('/plants/:id', async (req, res) => {
     });
 
     const plant = plantData.get({ plain: true });
-    console.log(plant);
 
-    res.render('plant', {
-      ...plant,
-      loggedIn: req.session.logged_in
+    const allNotes = await Note.findAll({ where: {
+      plant_id: req.params.id, },
+      include: [{ model: User, attributes: ["username"] }] 
     });
+    const notes = allNotes.map((note) =>
+    note.get({ plain: true }));
+
+    res.render('plant', { ...plant, notes, loggedIn: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
