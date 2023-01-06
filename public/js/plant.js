@@ -51,11 +51,12 @@ document
 // add notes
 const addNoteHandler = async (event) => {
   event.preventDefault();
-
+console.log("add notes")
   const note = document.querySelector('#add-note').value.trim();
   const plant_id = document.querySelector('.note-button').getAttribute('id');
 
   if (note) {
+    console.log("if note")
     const response = await fetch('/api/notes', {
       method: 'POST',
       body: JSON.stringify({ note, plant_id }),
@@ -92,3 +93,22 @@ const delPlantHandler = async (event) => {
 document
   .querySelector('.delete-post')
   .addEventListener('click', delPlantHandler);
+
+// delete comment
+const delNoteHandler = async (event) => {
+  const id = event.target.id;
+  const response = await fetch(`/api/notes/${id}`, {
+    method: 'DELETE',
+  });
+
+  if (response.ok) {
+    document.location.replace("/dashboard");
+  } else {
+    alert('Failed to delete note');
+  }
+};
+
+const deleteNote = document.getElementsByClassName('delete-note');
+  for (let i = 0; i < deleteNote.length; i++) {
+    deleteNote[i].addEventListener('click', delNoteHandler)
+  }

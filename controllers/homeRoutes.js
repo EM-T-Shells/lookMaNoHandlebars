@@ -6,11 +6,18 @@ const withAuth = require('../utils/auth');
 router.get('/plants/:id', async (req, res) => {
   try {
     const plantData = await Plant.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ["username"] }, { model: Note, attributes: ["id", "note"], include: [{ model: User, attributes:[ "username"]}] }]
+      include: [{ model: User, attributes: ["username"] }]
     });
     const plant = plantData.get({ plain: true });
-  console.log(plant)
-    res.render('plant', { ...plant, loggedIn: req.session.logged_in });
+
+    const allNotes = await Note.findAll({ where: {
+      plant_id: req.params.id, },
+      include: [{ model: User, attributes: ["username"] }] 
+    });
+    const notes = allNotes.map((note) =>
+    note.get({ plain: true }));
+
+    res.render('plant', { ...plant, notes, loggedIn: req.session.logged_in });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

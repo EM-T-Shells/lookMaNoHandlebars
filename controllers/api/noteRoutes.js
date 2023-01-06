@@ -17,34 +17,22 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// get notes
-router.get('/', async (req, res) => {
-  try {
-    const allNotes = await Note.findAll();
-    const notes = allNotes.map((note) =>
-    note.get({ plain: true }));
-    res.json(notes);
+// delete note
+router.delete('/:id', withAuth, async (req, res) => {
+  try{
+    const noteData = await Note.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!noteData) {
+      res.status(404).json({ message: 'No note found with this id! '});
+    }
   } catch (err) {
     res.status(400).json(err);
   }
 })
-
-// // delete note
-// router.delete('/:id', withAuth, async (req, res) => {
-//   try{
-//     const commentData = await Comment.destroy({
-//       where: {
-//         id: req.params.id,
-//         user_id: req.session.user_id,
-//       },
-//     });
-
-//     if (!commentData) {
-//       res.status(404).json({ message: 'No comment found with this id! '});
-//     }
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// })
 
 module.exports = router;

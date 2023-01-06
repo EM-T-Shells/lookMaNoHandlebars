@@ -85,9 +85,11 @@
             </div>
             <button type="submit" class="btn btn-light border border-dark mt-3 note-button" id="{{id}}">Add</button>
             <hr>
+
           {{#each notes as |note|}}
           {{> note-details}}
           {{/each}}
+
         </form>
       </div>
     </div>
