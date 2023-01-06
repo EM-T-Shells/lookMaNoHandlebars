@@ -19,6 +19,7 @@ router.post('/', withAuth, async (req, res) => {
 
 // delete note
 router.delete('/:id', withAuth, async (req, res) => {
+  console.log("params id", req.params.id, "session id", req.session.user_id )
   try{
     const noteData = await Note.destroy({
       where: {
@@ -29,6 +30,8 @@ router.delete('/:id', withAuth, async (req, res) => {
 
     if (!noteData) {
       res.status(404).json({ message: 'No note found with this id! '});
+    } else {
+      res.status(200).json({ message: 'Note deleted' })
     }
   } catch (err) {
     res.status(400).json(err);

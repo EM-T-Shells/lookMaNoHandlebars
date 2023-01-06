@@ -94,16 +94,20 @@ document
   .querySelector('.del-btn')
   .addEventListener('click', delPlantHandler);
 
-// delete comment
+// delete note
 const delNoteHandler = async (event) => {
   const id = event.target.id;
+  console.log("id", id)
   const response = await fetch(`/api/notes/${id}`, {
     method: 'DELETE',
   });
 
   if (response.ok) {
-    document.location.replace("/dashboard");
+    document.location.reload();
   } else {
+    console.log("response", response)
+    const parsedResponse = await response.json();
+    console.log(parsedResponse)
     alert('Failed to delete note');
   }
 };
