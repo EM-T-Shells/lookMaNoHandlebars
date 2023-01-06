@@ -91,7 +91,7 @@ const delPlantHandler = async (event) => {
 };
 
 document
-  .querySelector('.delete-post')
+  .querySelector('.del-btn')
   .addEventListener('click', delPlantHandler);
 
 // delete comment
