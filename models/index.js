@@ -30,13 +30,13 @@ Note.belongsTo(Plant, {
   foreignKey: 'plant_id'
 });
 
-// User.hasMany(Task, {
-//     foreignKey: 'user_id',
-//     onDelete: 'CASCADE'
-//   });
+User.hasMany(Task, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+  });
   
-// Task.belongsTo(User, {
-//     foreignKey: 'user_id'
-//   });
+Task.belongsTo(User, {
+    foreignKey: 'user_id'
+  });
 
-module.exports = { User, Plant, Note };
+module.exports = { User, Plant, Note, Task };

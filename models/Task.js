@@ -29,7 +29,21 @@ Task.init(
     },
     applied: {
       type: DataTypes.BOOLEAN,
-    },  
+    }, 
+    plant_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'plant',
+        key: 'id',
+      },    
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },    
+},       
   },
   {
     sequelize,

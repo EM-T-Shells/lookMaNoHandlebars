@@ -23,6 +23,7 @@ router.put('/:id', withAuth, async (req, res) => {
 
 // create plant
 router.post('/', withAuth, async (req, res) => {
+  console.log("######################")
   try {
     const newPlant = await Plant.create({
       ...req.body,
@@ -36,20 +37,34 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // add task
-router.post('/', withAuth, async (req, res) => {
-  console.log("task request body: ", req.body)
+router.post('/:id', withAuth, async (req, res) => {
+  console.log("task request body: ", req.body.watered, req.body.harvested, req.body.fertilized)
   try {
-    const newTask = await Task.create({
+    const newTask = await Task.upsert({
       ...req.body,
       user_id: req.session.user_id,
       plant_id: req.body.plant_id,
     });
-
     res.status(200).json(newTask);
   } catch (err) {
+    console.log("#########err############", err)
     res.status(400).json(err);
   }
 });
+
+// // get all tasks
+// router.get('/:id', async (req, res) => {
+//   try {
+//     const allTasks = await Task.findAll( { include: [ { model: User }, { model: Plant }] });
+//     const tasks = allTasks.map((task) =>
+//     task.get({ plain: true }));
+//     console.log("tasks", tasks)
+//     res.render('plant', { tasks, loggedIn: req.session.logged_in })
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// })
+
 
 // delete plant
 router.delete('/:id', withAuth, async (req, res) => {

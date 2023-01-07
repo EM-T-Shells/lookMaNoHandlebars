@@ -1,24 +1,34 @@
 const router = require('express').Router();
-const { Plant, User, Note } = require('../models');
+const { Plant, User, Note, Task } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get plant by id 
+// get plant, by id, get notes, get tasks 
 router.get('/plants/:id', async (req, res) => {
   try {
     const plantData = await Plant.findByPk(req.params.id, {
       include: [{ model: User, attributes: ["username"] }]
     });
-
     const plant = plantData.get({ plain: true });
-
+    // get notes
     const allNotes = await Note.findAll({ where: {
       plant_id: req.params.id, },
       include: [{ model: User, attributes: ["username"] }] 
     });
     const notes = allNotes.map((note) =>
     note.get({ plain: true }));
+    // get tasks
+    const allTasks = await Task.findAll( { where: {
+      plant_id: req.params.id, },
+     include: [ { model: User, attributes: ["username"] }]
+    });
+    const tasks = allTasks.map((task) =>
+    task.get({ plain: true }));
+      // harden with user id to use multiple users
 
-    res.render('plant', { ...plant, notes, loggedIn: req.session.logged_in });
+    // const task = allTasks[0].get({ plain: true });
+    // console.log("tasks", task)
+
+    res.render('plant', { ...plant, notes, tasks, loggedIn: req.session.logged_in })
   } catch (err) {
     res.status(500).json(err);
   }
