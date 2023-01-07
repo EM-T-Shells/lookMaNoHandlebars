@@ -36,21 +36,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// add task
-router.post('/:id', withAuth, async (req, res) => {
-  console.log("task request body: ", req.body.watered, req.body.harvested, req.body.fertilized)
-  try {
-    const newTask = await Task.upsert({
-      ...req.body,
-      user_id: req.session.user_id,
-      plant_id: req.body.plant_id,
-    });
-    res.status(200).json(newTask);
-  } catch (err) {
-    console.log("#########err############", err)
-    res.status(400).json(err);
-  }
-});
+
 
 // // get all tasks
 // router.get('/:id', async (req, res) => {

@@ -17,18 +17,15 @@ router.get('/plants/:id', async (req, res) => {
     const notes = allNotes.map((note) =>
     note.get({ plain: true }));
     // get tasks
-    // const allTasks = await Task.findAll( { where: {
-    //   plant_id: req.params.id, },
-    //  include: [ { model: User, attributes: ["username"] }]
-    // });
-    // const tasks = allTasks.map((task) =>
-    // task.get({ plain: true }));
-      // harden with user id to use multiple users
-
-    // const task = allTasks[0].get({ plain: true });
-    // console.log("tasks", task)
-
-    res.render('plant', { ...plant, notes, loggedIn: req.session.logged_in })
+//     const allTasks = await Task.findByPk(req.params.id);
+//     let tasks;
+//     if (allTasks.length) {
+//       tasks = allTasks.get({ plain: true });
+//   plant.push(tasks)
+//       console.log("tasks", task)
+//     }
+res.json(...plant)
+    // res.render('plant', { ...plant, notes, loggedIn: req.session.logged_in })
   } catch (err) {
     res.status(500).json(err);
   }
