@@ -14,21 +14,27 @@ Task.init(
     },
     watered: {
       type: DataTypes.BOOLEAN,
+      defaultValue: 0,
     },
     pruned: {
       type: DataTypes.BOOLEAN,
+      defaultValue: 0,
     },
     fertilized: {
       type: DataTypes.BOOLEAN,
+      defaultValue: 0,
     },
     transplanted: {
       type: DataTypes.BOOLEAN,
+      defaultValue: 0,
     },            
     harvested: {
       type: DataTypes.BOOLEAN,
+      defaultValue: 0,
     },
     applied: {
       type: DataTypes.BOOLEAN,
+      defaultValue: 0,
     }, 
     plant_id: {
       type: DataTypes.INTEGER,
@@ -36,14 +42,7 @@ Task.init(
         model: 'plant',
         key: 'id',
       },    
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },    
-},       
+    },      
   },
   {
     sequelize,
