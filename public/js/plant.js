@@ -23,7 +23,7 @@ const submitTaskHandler = async (event) => {
 
   if (watered.checked || pruned.checked || fertilized.checked || transplanted.checked || harvested.checked || applied.checked) {
     console.log("##################")
-    const response = await fetch(`/api/tasks/`, {
+    const response = await fetch('/api/tasks/', {
       method: 'POST',
       body: JSON.stringify(bodyObject),
       headers: { 'Content-Type': 'application/json' },
