@@ -18,9 +18,13 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
 
-              {{#if loggedIn}}
-               <button class="btn-light" id="logout"><a class="nav-link" href="/login">Sign Out</a></button>
-              {{/if}}
+
+               <button class="btn-light" id="logout"><a class="nav-link" href="/">Sign Out</a></button>
+
+               {{#if loggedIn}}
+               <p>still here</p>
+               {{/if}}
+
             </div>
           </div>
         </nav>
