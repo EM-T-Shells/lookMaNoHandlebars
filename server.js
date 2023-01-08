@@ -23,8 +23,8 @@ const sess = {
     httpOnly: true,
     secure: false,
   },
-  resave: true,
-  saveUninitialized: true,
+  resave: false,
+  saveUninitialized: false,
   store: new SequelizeStore({
     db: sequelize
   })
@@ -32,8 +32,8 @@ const sess = {
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(session(sess));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
