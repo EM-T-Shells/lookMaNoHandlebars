@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Plant, User, Note } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get plant by id 
+// get plant by id
 router.get('/plants/:id', async (req, res) => {
   try {
     const plantData = await Plant.findByPk(req.params.id, {
@@ -13,7 +13,7 @@ router.get('/plants/:id', async (req, res) => {
 
     const allNotes = await Note.findAll({ where: {
       plant_id: req.params.id, },
-      include: [{ model: User, attributes: ["username"] }] 
+      include: [{ model: User, attributes: ["username"] }]
     });
     const notes = allNotes.map((note) =>
     note.get({ plain: true }));
@@ -24,7 +24,7 @@ router.get('/plants/:id', async (req, res) => {
   }
 });
 
-// get all plants
+// login
 router.get('/', async (req, res) => {
     try {
       const allPlants = await Plant.findAll( { include: [ { model: User }]});
@@ -40,24 +40,26 @@ router.get('/', async (req, res) => {
 // get user's plants (dashboard)
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id, {
+    const userData = await User.findByPk(req.session.user_id,{
        include: [{ model: Plant }]
     });
     const user = userData.get({ plain: true });
-    res.render('dashboard', { ...user, loggedIn: req.session.logged_in });
-
+    res.render('dashboard', {
+      ...user,
+      loggedIn: req.session.logged_in
+    });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-// login route
+// if existing session, route loggin to dashboard
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/dashboard');
     return;
   }
-  res.render('login');
+  res.render('dashboard');
 });
 
 module.exports = router;
