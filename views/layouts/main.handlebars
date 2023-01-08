@@ -9,22 +9,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
   </head>
 
   <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
           <a class="navbar-brand" href="/">Plant Parenthood</a>
-
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link" href="/">Homepage</a>
+
               {{#if loggedIn}}
-              <a class="nav-link" href="/dashboard">My Garden</a>
-              <a class="nav-link" href="/" id="logout">Sign Out</a>
-              {{else}}
-              <a class="nav-link" href="/login">Sign In</a>
-              <a class="nav-link" href="/login">Sign Up</a>
+               <button class="btn-light" id="logout"><a class="nav-link" href="/login">Sign Out</a></button>
               {{/if}}
             </div>
           </div>
@@ -36,6 +31,8 @@
 
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
+    <script src="/js/login.js"></script>
+    {{else}}
     <script src="/js/logout.js"></script>
     {{/if}}
   </body>

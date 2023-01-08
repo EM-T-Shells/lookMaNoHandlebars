@@ -15,7 +15,7 @@ app.engine('handlebars', hbs.engine); // Inform Express.js which template engine
 app.set('view engine', 'handlebars');
 
 const bodyParser = require("body-parser");
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 const sess = {
   secret: 'Super secret secret',
   cookie: {
@@ -34,6 +34,7 @@ app.use(cookieParser());
 app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 

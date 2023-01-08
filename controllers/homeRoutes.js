@@ -24,7 +24,7 @@ router.get('/plants/:id', async (req, res) => {
   }
 });
 
-// login
+// allPlants
 router.get('/', async (req, res) => {
     try {
       const allPlants = await Plant.findAll( { include: [ { model: User }]});
@@ -53,10 +53,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-// if existing session, route loggin to dashboard
+// login
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/dashboard');
+    res.location.redirect('/dashboard');
     return;
   }
   res.render('dashboard');
