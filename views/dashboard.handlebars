@@ -1,14 +1,9 @@
 {{#if loggedIn}}
   <div class="bg-info vh-full">
-    <header>
-      <h1 class="text-bg-dark">Plant Parenthood</h1>
-      <h2 class="text-center text-light">{{username}}'s Garden</h2>
-    </header>
-
     <nav class="navbar bg-dark text-light">
       <div class="container-fluid">
         <div class="navbar-header">
-          <p class="display-3">Garden Dashboard</p>
+          <p class="display-3">{{username}}'s Garden</p>
         </div>
 
         <!--extra links-->
@@ -160,7 +155,7 @@
         </a>
       </div>
       {{/each}}
-      
+
     </div>
   </div>
 {{else}}
