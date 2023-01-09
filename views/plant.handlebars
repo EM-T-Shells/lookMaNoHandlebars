@@ -1,3 +1,5 @@
+{{#if loggedIn}}
+
 <h1>{{common_name}}</h1>
 
 {{> update}}
@@ -34,7 +36,7 @@
         </div>
         <div class="card-body p-5">
         <form class="task-form">
-          
+
           <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="watered">
               <label class="custom-control-label" for="watered">Watered</label>
@@ -100,3 +102,4 @@
 
 
   <script src="/js/plant.js"></script>
+{{/if}}

@@ -13,36 +13,36 @@ Task.init(
       autoIncrement: true,
     },
     watered: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0,
+      type: DataTypes.TINYINT(1),
+      defaultValue: 1,
     },
     pruned: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0,
+      type: DataTypes.TINYINT(1),
+      defaultValue: 1,
     },
     fertilized: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0,
+      type: DataTypes.TINYINT(1),
+      defaultValue: 1,
     },
     transplanted: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0,
-    },            
+      type: DataTypes.TINYINT(1),
+      defaultValue: 1,
+    },
     harvested: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0,
+      type: DataTypes.TINYINT(1),
+      defaultValue: 1,
     },
     applied: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0,
-    }, 
+      type: DataTypes.TINYINT(1),
+      defaultValue: 1,
+    },
     plant_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'plant',
         key: 'id',
-      },    
-    },      
+      },
+    },
   },
   {
     sequelize,

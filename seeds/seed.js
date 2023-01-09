@@ -16,22 +16,22 @@ const seedDatabase = async () => {
 
   for (const plant of plantData) {
     await Plant.create({
-      ...plant, 
+      ...plant,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     })
   };
 
   for (const task of taskData) {
     await Task.create({
-      ...task, 
-      plant_id: users[Math.floor(Math.random() * users.length)].id,
+      task,
+      // plant_id: plant[Math.floor(Math.random() * plant.length)].id,
     })
   };
 
   for (const note of noteData) {
     await Note.create({
-      ...note, 
-      plant_id: users[Math.floor(Math.random() * users.length)].id,
+      ...note,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
     })
   };
 

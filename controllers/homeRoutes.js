@@ -65,7 +65,7 @@ router.get('/plants/:id', async (req, res) => {
   }
 });
 
-// get all plants
+// homepage login
 router.get('/', async (req, res) => {
     try {
       const allPlants = await Plant.findAll( { include: [ { model: User }]});
@@ -92,8 +92,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-// login route
-router.get('/login', (req, res) => {
+// login route --
+router.get('/', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/dashboard');
     return;
