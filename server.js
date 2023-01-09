@@ -7,9 +7,12 @@ const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const cookieParser = require('cookie-parser');
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+app.use(cookieParser());
 
 // Create the Handlebars.js engine object with custom helper functions
 const hbs = exphbs.create({ helpers });
@@ -35,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 1/4 @ 22:45 - et //
 const bodyParser = require("body-parser");
+const { application } = require('express');
 app.use(bodyParser.json());
 
 

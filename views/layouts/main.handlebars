@@ -18,13 +18,12 @@
 
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link" href="/">Homepage</a>
               {{#if loggedIn}}
+              <a class="nav-link" href="/">Home</a>
               <a class="nav-link" href="/dashboard">My Garden</a>
-              <a class="nav-link" href="/" id="logout">Sign Out</a>
+              <a class="nav-link" href="/login" id="logout">Sign Out</a>
               {{else}}
-              <a class="nav-link" href="/login">Sign In</a>
-              <a class="nav-link" href="/login">Sign Up</a>
+              <a class="nav-link" href="/login">Login</a>
               {{/if}}
             </div>
           </div>
@@ -35,9 +34,9 @@
   </div>
 
     <!-- Render script for logged in users only -->
-    {{#if logged_in}}
+   
     <script src="/js/logout.js"></script>
-    {{/if}}
+    
   </body>
 
 </html>
