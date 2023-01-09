@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Plant, User, Note, Task } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get plant, by id, get notes, get tasks 
+// get plant, by id, get notes, get tasks
 router.get('/plants/:id', async (req, res) => {
   try {
     // get all notes and tasks

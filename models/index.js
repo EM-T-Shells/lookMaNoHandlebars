@@ -30,9 +30,9 @@ Task.belongsTo(Plant, {
   foreignKey: 'plant_id'
 });
 
-Note.belongsToMany(User, { through: Plant });
+// Note.belongsToMany(User, { through: Plant });
 
-Task.belongsToMany(User, { through: Plant });
+// Task.belongsToMany(User, { through: Plant });
 
 
 module.exports = { User, Plant, Note, Task };
