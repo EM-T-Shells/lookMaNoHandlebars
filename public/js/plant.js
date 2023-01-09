@@ -22,18 +22,20 @@ const submitTaskHandler = async (event) => {
 
 
   if (watered.checked || pruned.checked || fertilized.checked || transplanted.checked || harvested.checked || applied.checked) {
+    console.log(watered.checked)
     console.log("##################")
-    const response = await fetch('/api/tasks/', {
+    const response = await fetch('/api/tasks', {
       method: 'POST',
       body: JSON.stringify(bodyObject),
       headers: { 'Content-Type': 'application/json' },
     });
-
-    if (response.ok) {
-      document.location.reload();
-    } else {
-      alert('Failed to add tasks.');
-    }
+console.log(response)
+    // if (response.ok) {
+    //   console.log()
+    //   document.location.reload();
+    // } else {
+    //   alert('Failed to add tasks.');
+    // }
   }
 };
 document

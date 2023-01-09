@@ -8,6 +8,11 @@ User.hasMany(Plant, {
   onDelete: 'CASCADE'
 });
 
+User.hasMany(Note, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+})
+
 Plant.belongsTo(User, {
   foreignKey: 'user_id'
 });

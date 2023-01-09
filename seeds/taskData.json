@@ -1,83 +1,83 @@
 [
   {
-    "watered": "True",
-    "pruned": "False",
-    "fertilized": "False",
-    "transplanted": "False",
-    "harvested": "False",
-    "applied": "True",
-    "plant_id": "1"
+    "watered": 0,
+    "pruned": 1,
+    "fertilized": 1,
+    "transplanted": 1,
+    "harvested": 1,
+    "applied": 0,
+    "plant_id": 1
   },
   {
-    "watered": "False",
-    "pruned": "False",
-    "fertilized": "True",
-    "transplanted": "False",
-    "harvested": "False",
-    "applied": "True",
-    "plant_id": "2"
+    "watered": 1,
+    "pruned": 1,
+    "fertilized": 0,
+    "transplanted": 1,
+    "harvested": 1,
+    "applied": 0,
+    "plant_id": 2
   },
   {
-    "watered": "True",
-    "pruned": "False",
-    "fertilized": "False",
-    "transplanted": "True",
-    "harvested": "False",
-    "applied": "True",
-    "plant_id": "3"
+    "watered": 0,
+    "pruned": 1,
+    "fertilized": 1,
+    "transplanted": 0,
+    "harvested": 1,
+    "applied": 0,
+    "plant_id": 3
   }
   ,  {
-    "watered": "True",
-    "pruned": "False",
-    "fertilized": "True",
-    "transplanted": "False",
-    "harvested": "False",
-    "applied": "True",
-    "plant_id": "4"
+    "watered": 0,
+    "pruned": 1,
+    "fertilized": 0,
+    "transplanted": 1,
+    "harvested": 1,
+    "applied": 0,
+    "plant_id": 4
   }
   ,  {
-    "watered": "False",
-    "pruned": "True",
-    "fertilized": "False",
-    "transplanted": "False",
-    "harvested": "False",
-    "applied": "True",
-    "plant_id": "5"
+    "watered": 1,
+    "pruned": 0,
+    "fertilized": 1,
+    "transplanted": 1,
+    "harvested": 1,
+    "applied": 0,
+    "plant_id": 5
   }
   ,  {
-    "watered": "True",
-    "pruned": "False",
-    "fertilized": "False",
-    "transplanted": "False",
-    "harvested": "False",
-    "applied": "False",
-    "plant_id": "6"
+    "watered": 0,
+    "pruned": 1,
+    "fertilized": 1,
+    "transplanted": 1,
+    "harvested": 1,
+    "applied": 1,
+    "plant_id": 6
   }
   ,  {
-    "watered": "False",
-    "pruned": "False",
-    "fertilized": "True",
-    "transplanted": "False",
-    "harvested": "False",
-    "applied": "True",
-    "plant_id": "7"
+    "watered": 1,
+    "pruned": 1,
+    "fertilized": 0,
+    "transplanted": 1,
+    "harvested": 1,
+    "applied": 0,
+    "plant_id": 7
   }
   ,  {
-    "watered": "True",
-    "pruned": "False",
-    "fertilized": "False",
-    "transplanted": "False",
-    "harvested": "False",
-    "applied": "True",
-    "plant_id": "8"
+    "watered": 0,
+    "pruned": 1,
+    "fertilized": 1,
+    "transplanted": 1,
+    "harvested": 1,
+    "applied": 0,
+    "plant_id": 8
   },
   {
-    "watered": "True",
-    "pruned": "True",
-    "fertilized": "True",
-    "transplanted": "False",
-    "harvested": "False",
-    "applied": "True",
-    "plant_id": "9"
+    "watered": 0,
+    "pruned": 0,
+    "fertilized": 0,
+    "transplanted": 1,
+    "harvested": 1,
+    "applied": 0,
+    "plant_id": 9
   }
 ]

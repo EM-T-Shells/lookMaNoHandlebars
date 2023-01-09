@@ -1,35 +1,35 @@
 [
   {
     "note": "Leaf tips are brown",
-    "plant_id": "1"
+    "plant_id": 1
   },
   {
     "note": "Holes in leaves",
-    "plant_id": "1"
+    "plant_id": 1
   },
   {
     "note": "Iron deficiency chlorosis",
-    "plant_id": "2"
+    "plant_id": 2
   },
   {
     "note": "Deadheaded blooms",
-    "plant_id": "3"
+    "plant_id": 3
   },
   {
     "note": "New green shoots forming",
-    "plant_id": "4"
+    "plant_id": 4
   },
   {
     "note": "Leaves are yellowing",
-    "plant_id": "5"
+    "plant_id": 5
   },
   {
     "note": "About to flower",
-    "plant_id": "8"
+    "plant_id": 8
   },
   {
     "note": "Pruned 1/3",
-    "plant_id": "9"
+    "plant_id": 9
   }
 
 ]
