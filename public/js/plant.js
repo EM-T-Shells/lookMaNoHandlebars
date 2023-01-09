@@ -8,36 +8,29 @@ const submitTaskHandler = async (event) => {
   const transplanted = document.querySelector('input[id = "transplanted"]');
   const harvested = document.querySelector('input[id = "harvested"]');
   const applied = document.querySelector('input[id = "applied"]');
+  const id = document.querySelector('.task-button').getAttribute('id');
 
-  const bodyObject = {}
-  if (watered.checked) {
-    bodyObject.watered = watered.value;
+  const bodyObject = {
+    watered:watered.value === "on" ? 1 : 0,
+    pruned:pruned.value === "on" ? 1 : 0,
+    fertilized:fertilized.value === "on" ? 1 : 0,
+    transplanted:transplanted.value === "on" ? 1 : 0,
+    harvested:harvested.value === "on" ? 1 : 0,
+    applied:applied.value === "on" ? 1 : 0,
+    plant_id:id,
   }
-  if (pruned.checked) {
-    bodyObject.pruned = pruned.value;
-  }
-  if (fertilized.checked) {
-    bodyObject.fertilized = fertilized.value;
-  }
-  if (transplanted.checked) {
-    bodyObject.transplanted = transplanted.value;
-  }
-  if (harvested.checked) {
-    bodyObject.harvested = harvested.value;
-  }
-  if (applied.checked) {
-    bodyObject.applied = applied.value;
-  }
+
 
   if (watered.checked || pruned.checked || fertilized.checked || transplanted.checked || harvested.checked || applied.checked) {
-    const response = await fetch(`/api/plants/${id}`, {
+    console.log("##################")
+    const response = await fetch('/api/tasks/', {
       method: 'POST',
       body: JSON.stringify(bodyObject),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace(`/api/plants/${id}`);
+      document.location.reload();
     } else {
       alert('Failed to add tasks.');
     }

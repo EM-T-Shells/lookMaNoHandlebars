@@ -1,24 +1,65 @@
 const router = require('express').Router();
-const { Plant, User, Note } = require('../models');
+const { Plant, User, Note, Task } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get plant by id 
+// get plant, by id, get notes, get tasks 
 router.get('/plants/:id', async (req, res) => {
   try {
-    const plantData = await Plant.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ["username"] }]
-    });
+    // get all notes and tasks
+    const taskCheck = await Task.findAll({ where: { plant_id: req.params.id } })
+    const noteCheck = await Note.findAll({ where: { plant_id: req.params.id } })
+    let plantData;
+    // the remaining if's check what data was re turned
+    if (!taskCheck.length && !noteCheck.length) {
+      plantData = await Plant.findByPk(req.params.id, { include: [{ model: User, attributes: ["username"] }] });
+    } else if (taskCheck.length && !noteCheck.length) {
+      plantData = await Plant.findByPk(req.params.id, {
+        include: [
+          {
+            model: User,
+            attributes: ["username"]
+          },
+          {
+            model: Task,
+            where: { plant_id: req.params.id }
+          }
+        ]
+      });
+    } else if (!taskCheck.length && noteCheck.length) {
+      plantData = await Plant.findByPk(req.params.id, {
+        include: [
+          {
+            model: User,
+            attributes: ["username"]
+          },
+          {
+            model: Note,
+            where: { plant_id: req.params.id },
+          }
+        ]
+      });
+    } else {
+      plantData = await Plant.findByPk(req.params.id, {
+        include: [
+          {
+            model: User,
+            attributes: ["username"]
+          },
+          {
+            model: Task,
+            where: { plant_id: req.params.id }
+          },
+          {
+            model: Note,
+            where: { plant_id: req.params.id },
+          }
+        ]
+      });
+    }
 
     const plant = plantData.get({ plain: true });
 
-    const allNotes = await Note.findAll({ where: {
-      plant_id: req.params.id, },
-      include: [{ model: User, attributes: ["username"] }] 
-    });
-    const notes = allNotes.map((note) =>
-    note.get({ plain: true }));
-
-    res.render('plant', { ...plant, notes, loggedIn: req.session.logged_in });
+    res.render('plant', { ...plant, loggedIn: req.session.logged_in })
   } catch (err) {
     res.status(500).json(err);
   }

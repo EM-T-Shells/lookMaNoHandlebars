@@ -8,7 +8,7 @@
       <div class="card-header">
         Details
       </div>
-      <div class="card-body">
+      <div class="card-body p-5">
         <p class="card-text"><b>Common Name: </b>{{common_name}}</p>
         <p class="card-text"><b>Scientific Name: </b>{{scientific_name}}</p>
         <p class="card-text"><b>Growth Habit: </b>{{growth_habit}}</p>
@@ -23,6 +23,8 @@
 </div>
 </div>
 
+
+
 <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -30,9 +32,10 @@
         <div class="card-header">
           Tasks
         </div>
+        <div class="card-body p-5">
         <form class="task-form">
-          <div class="card-body">
-            <div class="custom-control custom-switch">
+          
+          <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="watered">
               <label class="custom-control-label" for="watered">Watered</label>
             </div>
@@ -56,16 +59,17 @@
               <input type="checkbox" class="custom-control-input" id="applied">
               <label class="custom-control-label" for="applied">Applied insecticide/fungicide</label>
             </div>
-            <button type="submit" class="btn btn-light border border-dark mt-3">Submit</button>
+            <button type="submit" class="btn btn-light border border-dark mt-3 task-button" id="{{id}}">Submit</button>
             <hr>
-            <p class="card-text"><b>Watered: </b>{{task.watered}}</p>
-            <p class="card-text"><b>Pruned: </b>{{task.pruned}}</p>
-            <p class="card-text"><b>Fertilized: </b>{{task.fertilized}}</p>
-            <p class="card-text"><b>Transplanted: </b>{{task.transplanted}}</p>
-            <p class="card-text"><b>Harvested: </b>{{task.harvested}}</p>
-            <p class="card-text"><b>Applied: </b>{{task.applied}}</p>
+            <p class="card-text"><b>Watered: </b>{{#if task.watered}}✅{{/if}}</p>
+            <p class="card-text"><b>Pruned: </b>{{#if task.pruned}}✅{{/if}}</p>
+            <p class="card-text"><b>Fertilized: </b>{{#if task.fertilized}}✅{{/if}}</p>
+            <p class="card-text"><b>Transplanted: </b>{{#if task.transplanted}}✅{{/if}}</p>
+            <p class="card-text"><b>Harvested: </b>{{#if task.harvested}}✅{{/if}}</p>
+            <p class="card-text"><b>Applied: </b>{{#if task.applied}}✅{{/if}}</p>
           </div>
         </form>
+        </div>
       </div>
     </div>
   </div>
@@ -75,13 +79,12 @@
     <div class="col-md-6">
       <div class="card border-dark mb-3">
         <div class="card-header">
-          Notes
+         Notes
         </div>
         <form class="note-form">
-          <div class="card-body">
+          <div class="card-body p-5">
             <div class="form-group">
-              <label for="common-name">Add note</label>
-              <input type="form-input" class="form-control" id="add-note">
+              <input type="form-input" class="form-control" id="add-note" placeholder="Add note..."">
             </div>
             <button type="submit" class="btn btn-light border border-dark mt-3 note-button" id="{{id}}">Add</button>
             <hr>
