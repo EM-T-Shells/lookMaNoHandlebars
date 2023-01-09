@@ -1,278 +1,281 @@
 {{#if loggedIn}}
-  <div class="bg-info vh-full">
-    <nav class="navbar bg-dark text-light">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <p class="display-3">{{username}}'s Garden</p>
-        </div>
-
-        <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-secondary btn-lg float-right" data-toggle="modal" data-target="#myModal">
-          New Plant
-        </button>
+<div class="bg-info vh-full">
+  <nav class="navbar bg-dark text-light">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <p class="display-3">{{username}}'s garden</p>
       </div>
-    </nav>
-
-<div class="container">
-  <div class="modal" tabindex="-1" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Add A Plant</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       
-        <form class="plant-form">
-                  <div class="form-group">
-                    <label for="common-name">Common Name</label>
-                    <input type="form-input" class="form-control" id="common-name">
-                  </div>
-                  <div class="form-group">
-                    <label for="scientific-name">Scientific Name</label>
-                    <input type="form-input" class="form-control" id="scientific-name">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="life-cycle">Growth Habit</label>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Shrub" id="Shrub" name="growth-habit" checked />
-                      <label class="form-check-label radio-inline" for="growth-habit">Shrub</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Groundcover" id="groundcover" name="growth-habit">
-                      <label class="form-check-label radio-inline" for="growth-habit">Groundcover</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Herb" id="herb" name="growth-habit">
-                      <label class="form-check-label radio-inline" for="growth-habit">Herb</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Tree" id="tree" name="growth-habit">
-                      <label class="form-check-label radio-inline" for="growth-habit">Tree</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Vine" id="vine" name="growth-habit">
-                      <label class="form-check-label radio-inline" for="growth-habit">Vine</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Grass" id="grass" name="growth-habit">
-                      <label class="form-check-label radio-inline" for="growth-habit">Grass</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Cactus" id="cactus" name="growth-habit">
-                      <label class="form-check-label radio-inline" for="growth-habit">Cactus</label>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="life-cycle">Life Cycle</label>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Annual" id="annual" name="life-cycle" checked />
-                      <label class="form-check-label radio-inline" for="life-cycle">Annual</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Perennial" id="perennial" name="life-cycle">
-                      <label class="form-check-label radio-inline" for="life-cycle">Perennial</label>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="light-reqs">Light Requirements</label>
-
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="Full sun" id="fullsun" name="sun-reqs" checked />
-                      <label class="form-check-label checkbox-inline" for="sun-reqs">
-                        Full sun
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="Partial sun" id="partialsun" name="sun-reqs">
-                      <label class="form-check-label checkbox-inline" for="sun-reqs">
-                        Part sun
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="Partial shade" id="partialshade" name="sun-reqs">
-                      <label class="form-check-label checkbox-inline" for="sun-reqs">
-                        Part shade
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="Full shade" id="fullshade" name="sun-reqs">
-                      <label class="form-check-label checkbox-inline" for="sun-reqs">
-                        Full shade
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="water-reqs">Water Requirements</label>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Low" id="low" name="water-reqs" checked />
-                      <label class="form-check-label radio-inline" for="water-reqs">Low</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Medium" id="medium" name="water-reqs">
-                      <label class="form-check-label radio-inline" for="water-reqs">Medium</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="High" id="high" name="water-reqs">
-                      <label class="form-check-label radio-inline" for="water-reqs">High</label>
-                    </div>
-                  </div>
-
-                  <button type="submit" class="btn btn-light border border-dark">Create</button>
-                </form>
-                
-      </div>
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#myModal">
+        New Plant
+      </button>
     </div>
-  </div>
-</div>
-</div>
+  </nav>
 
-    {{!-- <!--new plant modal-form-->
-    <div class="container">
-      <!-- form -->
-      <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-          <!-- Modal content-->
-          <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+  <div class="container">
+    <div class="modal" tabindex="-1" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add A Plant</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <form class="plant-form">
+              <div class="form-group">
+                <label for="common-name">Common Name</label>
+                <input type="form-input" class="form-control" id="common-name">
               </div>
-              <div class="modal-body">
-                <form class="plant-form">
-                  <div class="form-group">
-                    <label for="common-name">Common Name</label>
-                    <input type="form-input" class="form-control" id="common-name">
-                  </div>
-                  <div class="form-group">
-                    <label for="scientific-name">Scientific Name</label>
-                    <input type="form-input" class="form-control" id="scientific-name">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="life-cycle">Growth Habit</label>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Shrub" id="shrub" name="growth-habit" checked />
-                      <label class="form-check-label" for="growth-habit">Shrub</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Groundcover" id="groundcover" name="growth-habit">
-                      <label class="form-check-label" for="growth-habit">Groundcover</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Herb" id="herb" name="growth-habit">
-                      <label class="form-check-label" for="growth-habit">Herb</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Tree" id="tree" name="growth-habit">
-                      <label class="form-check-label" for="growth-habit">Tree</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Vine" id="vine" name="growth-habit">
-                      <label class="form-check-label" for="growth-habit">Vine</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Grass" id="grass" name="growth-habit">
-                      <label class="form-check-label" for="growth-habit">Grass</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Cactus" id="cactus" name="growth-habit">
-                      <label class="form-check-label" for="growth-habit">Cactus</label>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="life-cycle">Life Cycle</label>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Annual" id="annual" name="life-cycle" checked />
-                      <label class="form-check-label" for="life-cycle">Annual</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Perennial" id="perennial" name="life-cycle">
-                      <label class="form-check-label" for="life-cycle">Perennial</label>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="light-reqs">Light Requirements</label>
-
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="Full sun" id="fullsun" name="sun-reqs" checked />
-                      <label class="form-check-label" for="sun-reqs">
-                        Full sun
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="Partial sun" id="partialsun" name="sun-reqs">
-                      <label class="form-check-label" for="sun-reqs">
-                        Part sun
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="Partial shade" id="partialshade" name="sun-reqs">
-                      <label class="form-check-label" for="sun-reqs">
-                        Part shade
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="Full shade" id="fullshade" name="sun-reqs">
-                      <label class="form-check-label" for="sun-reqs">
-                        Full shade
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="water-reqs">Water Requirements</label>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Low" id="low" name="water-reqs" checked />
-                      <label class="form-check-label" for="water-reqs">Low</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="Medium" id="medium" name="water-reqs">
-                      <label class="form-check-label" for="water-reqs">Medium</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" class="form-check-input" value="High" id="high" name="water-reqs">
-                      <label class="form-check-label" for="water-reqs">High</label>
-                    </div>
-                  </div>
-
-                  <button type="submit" class="btn btn-light border border-dark">Create</button>
-                </form>
+              <div class="form-group">
+                <label for="scientific-name">Scientific Name</label>
+                <input type="form-input" class="form-control" id="scientific-name">
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+              <div class="form-group">
+                <label for="life-cycle">Growth Habit</label>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Shrub" id="Shrub" name="growth-habit" checked />
+                  <label class="form-check-label radio-inline" for="growth-habit">Shrub</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Groundcover" id="groundcover" name="growth-habit">
+                  <label class="form-check-label radio-inline" for="growth-habit">Groundcover</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Herb" id="herb" name="growth-habit">
+                  <label class="form-check-label radio-inline" for="growth-habit">Herb</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Tree" id="tree" name="growth-habit">
+                  <label class="form-check-label radio-inline" for="growth-habit">Tree</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Vine" id="vine" name="growth-habit">
+                  <label class="form-check-label radio-inline" for="growth-habit">Vine</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Grass" id="grass" name="growth-habit">
+                  <label class="form-check-label radio-inline" for="growth-habit">Grass</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Cactus" id="cactus" name="growth-habit">
+                  <label class="form-check-label radio-inline" for="growth-habit">Cactus</label>
+                </div>
               </div>
+
+              <div class="form-group">
+                <label for="life-cycle">Life Cycle</label>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Annual" id="annual" name="life-cycle" checked />
+                  <label class="form-check-label radio-inline" for="life-cycle">Annual</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Perennial" id="perennial" name="life-cycle">
+                  <label class="form-check-label radio-inline" for="life-cycle">Perennial</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="light-reqs">Light Requirements</label>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Full sun" id="fullsun" name="sun-reqs"
+                    checked />
+                  <label class="form-check-label checkbox-inline" for="sun-reqs">
+                    Full sun
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Partial sun" id="partialsun" name="sun-reqs">
+                  <label class="form-check-label checkbox-inline" for="sun-reqs">
+                    Part sun
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Partial shade" id="partialshade"
+                    name="sun-reqs">
+                  <label class="form-check-label checkbox-inline" for="sun-reqs">
+                    Part shade
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Full shade" id="fullshade" name="sun-reqs">
+                  <label class="form-check-label checkbox-inline" for="sun-reqs">
+                    Full shade
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="water-reqs">Water Requirements</label>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Low" id="low" name="water-reqs" checked />
+                  <label class="form-check-label radio-inline" for="water-reqs">Low</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Medium" id="medium" name="water-reqs">
+                  <label class="form-check-label radio-inline" for="water-reqs">Medium</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="High" id="high" name="water-reqs">
+                  <label class="form-check-label radio-inline" for="water-reqs">High</label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-light border border-dark">Create</button>
+            </form>
+
           </div>
         </div>
       </div>
-    </div> --}}
-
-    <!--user plants grid-->
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 my-4 mx-auto">
-
-      {{#each plants as |plant|}}
-      <div class="card border-dark m-3" style="width:20rem;">
-        <div class="card-header text-center">
-          {{common_name}}
-        </div>
-        <a href="/plants/{{id}}">
-          <img class="card-img-bottom" src="/images/{{growth_habit}}.png">
-        </a>
-      </div>
-      {{/each}}
-
     </div>
   </div>
+
+  {{!-- <!--new plant modal-form-->
+  <div class="container">
+    <!-- form -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <form class="plant-form">
+              <div class="form-group">
+                <label for="common-name">Common Name</label>
+                <input type="form-input" class="form-control" id="common-name">
+              </div>
+              <div class="form-group">
+                <label for="scientific-name">Scientific Name</label>
+                <input type="form-input" class="form-control" id="scientific-name">
+              </div>
+
+              <div class="form-group">
+                <label for="life-cycle">Growth Habit</label>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Shrub" id="shrub" name="growth-habit" checked />
+                  <label class="form-check-label" for="growth-habit">Shrub</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Groundcover" id="groundcover" name="growth-habit">
+                  <label class="form-check-label" for="growth-habit">Groundcover</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Herb" id="herb" name="growth-habit">
+                  <label class="form-check-label" for="growth-habit">Herb</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Tree" id="tree" name="growth-habit">
+                  <label class="form-check-label" for="growth-habit">Tree</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Vine" id="vine" name="growth-habit">
+                  <label class="form-check-label" for="growth-habit">Vine</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Grass" id="grass" name="growth-habit">
+                  <label class="form-check-label" for="growth-habit">Grass</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Cactus" id="cactus" name="growth-habit">
+                  <label class="form-check-label" for="growth-habit">Cactus</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="life-cycle">Life Cycle</label>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Annual" id="annual" name="life-cycle" checked />
+                  <label class="form-check-label" for="life-cycle">Annual</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Perennial" id="perennial" name="life-cycle">
+                  <label class="form-check-label" for="life-cycle">Perennial</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="light-reqs">Light Requirements</label>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Full sun" id="fullsun" name="sun-reqs"
+                    checked />
+                  <label class="form-check-label" for="sun-reqs">
+                    Full sun
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Partial sun" id="partialsun" name="sun-reqs">
+                  <label class="form-check-label" for="sun-reqs">
+                    Part sun
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Partial shade" id="partialshade"
+                    name="sun-reqs">
+                  <label class="form-check-label" for="sun-reqs">
+                    Part shade
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Full shade" id="fullshade" name="sun-reqs">
+                  <label class="form-check-label" for="sun-reqs">
+                    Full shade
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="water-reqs">Water Requirements</label>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Low" id="low" name="water-reqs" checked />
+                  <label class="form-check-label" for="water-reqs">Low</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="Medium" id="medium" name="water-reqs">
+                  <label class="form-check-label" for="water-reqs">Medium</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" value="High" id="high" name="water-reqs">
+                  <label class="form-check-label" for="water-reqs">High</label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-light border border-dark">Create</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> --}}
+
+  <!--user plants grid-->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 my-4 mx-auto">
+    {{#each plants as |plant|}}
+    <div class="card border-dark m-3">
+      <div class="card-header text-center">
+        {{common_name}}
+      </div>
+      <a href="/plants/{{id}}">
+        <img class="card-img-bottom" src="/images/{{growth_habit}}.png">
+      </a>
+    </div>
+    {{/each}}
+  </div>
+  
+</div>
+
 {{else}}
-  <a href="/login">You must login first to view this page</a>
+<a href="/login">You must login first to view this page</a>
 {{/if}}
 
 <script src="/js/dashboard.js"></script>
