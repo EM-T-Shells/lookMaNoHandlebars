@@ -98,7 +98,7 @@ router.get('/', (req, res) => {
     res.redirect('/dashboard');
     return;
   }
-  res.render('login');
+  res.render('dashboard');
 });
 
 module.exports = router;
