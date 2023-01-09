@@ -14,27 +14,27 @@ Task.init(
     },
     watered: {
       type: DataTypes.TINYINT(1),
-      defaultValue: 1,
+      defaultValue: 0,
     },
     pruned: {
       type: DataTypes.TINYINT(1),
-      defaultValue: 1,
+      defaultValue: 0,
     },
     fertilized: {
       type: DataTypes.TINYINT(1),
-      defaultValue: 1,
+      defaultValue: 0,
     },
     transplanted: {
       type: DataTypes.TINYINT(1),
-      defaultValue: 1,
+      defaultValue: 0,
     },
     harvested: {
       type: DataTypes.TINYINT(1),
-      defaultValue: 1,
+      defaultValue: 0,
     },
     applied: {
       type: DataTypes.TINYINT(1),
-      defaultValue: 1,
+      defaultValue: 0,
     },
     plant_id: {
       type: DataTypes.INTEGER,

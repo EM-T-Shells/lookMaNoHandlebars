@@ -4,7 +4,8 @@
 
 {{> update}}
 
-<div class="container"></div>
+<div class="container">
+  <!--details-->
   <div class="row">
     <div class="col-md-6">
       <div class="card border-dark mb-3">
@@ -19,12 +20,29 @@
           <p class="card-text"><b>Light Requirements: </b>{{light_reqs}}</p>
           <p class="card-text"><b>Water Requirements: </b>{{water_reqs}}</p>
         </div>
-        <div class="card-footer"><small class="text-muted"><a href="#" data-toggle="modal" data-target="#updateModal">Update</a> |
-            <a href="#" class="del-btn" data-id="{{id}}">Delete</a> </small></div>
+        <div class="card-footer update_delete_buttons">
+          <small class="text-muted"><a href="#" data-toggle="modal" data-target="#updateModal">Update</a> |
+            <a href="#" class="del-btn" data-id="{{id}}">Delete</a>
+          </small>
+        </div>
       </div>
+      {{!-- <div class="card-body p-5 ">
+        <p class="card-text"><b>Common Name: </b>{{common_name}}</p>
+        <p class="card-text"><b>Scientific Name: </b>{{scientific_name}}</p>
+        <p class="card-text"><b>Growth Habit: </b>{{growth_habit}}</p>
+        <p class="card-text"><b>Life Cycle: </b>{{life_cycle}}</p>
+        <p class="card-text"><b>Light Requirements: </b>{{light_reqs}}</p>
+        <p class="card-text"><b>Water Requirements: </b>{{water_reqs}}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">
+          <a href="#" data-toggle="modal" data-target="#updateModal">Update</a> |
+          <a href="#" class="del-btn" data-id="{{id}}">Delete</a>
+        </small>
+      </div> --}}
     </div>
   </div>
-
+  <!--tasks-->
   <div class="row">
     <div class="col-md-6">
       <div class="card border-dark mb-3">
@@ -32,67 +50,68 @@
           Tasks
         </div>
         <div class="card-body p-5">
-        <form class="task-form">
+          <form class="task-form">
 
-          <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="watered">
-              <label class="custom-control-label" for="watered">Watered</label>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="watered" name="watered">
+              <label class="form-check-label checkbox-inline" for="watered">Watered</label>
             </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="pruned">
-              <label class="custom-control-label" for="pruned">Pruned</label>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="pruned" name="pruned">
+              <label class="form-check-label checkbox-inline" for="pruned">Pruned</label>
             </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="fertilized">
-              <label class="custom-control-label" for="fertilized">Fertilized</label>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="fertilized" name="fertilized">
+              <label class="form-check-label checkbox-inline" for="fertilized">Watered</label>
             </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="transplanted">
-              <label class="custom-control-label" for="transplanted">Transplanted</label>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="transplanted" name="transplanted">
+              <label class="form-check-label checkbox-inline" for="transplanted">Transplanted</label>
             </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="harvested">
-              <label class="custom-control-label" for="harvested">Harvested</label>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="harvested" name="harvested">
+              <label class="form-check-label checkbox-inline" for="harvested">Harvested</label>
             </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="applied">
-              <label class="custom-control-label" for="applied">Applied insecticide/fungicide</label>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="applied" name="applied">
+              <label class="form-check-label checkbox-inline" for="applied">Applied insecticide/fungicide</label>
             </div>
             <button type="submit" class="btn btn-light border border-dark mt-3 task-button" id="{{id}}">Submit</button>
-            <hr>
-            <p class="card-text"><b>Watered: </b>{{#if task.watered}}✅{{/if}}</p>
-            <p class="card-text"><b>Pruned: </b>{{#if task.pruned}}✅{{/if}}</p>
-            <p class="card-text"><b>Fertilized: </b>{{#if task.fertilized}}✅{{/if}}</p>
-            <p class="card-text"><b>Transplanted: </b>{{#if task.transplanted}}✅{{/if}}</p>
-            <p class="card-text"><b>Harvested: </b>{{#if task.harvested}}✅{{/if}}</p>
-            <p class="card-text"><b>Applied: </b>{{#if task.applied}}✅{{/if}}</p>
-          </div>
-        </form>
+          </form>
+          <hr>
+          <p class="card-text"><b>Watered: </b>{{#if task.watered}}✅{{/if}}</p>
+          <p class="card-text"><b>Pruned: </b>{{#if task.pruned}}✅{{/if}}</p>
+          <p class="card-text"><b>Fertilized: </b>{{#if task.fertilized}}✅{{/if}}</p>
+          <p class="card-text"><b>Transplanted: </b>{{#if task.transplanted}}✅{{/if}}</p>
+          <p class="card-text"><b>Harvested: </b>{{#if task.harvested}}✅{{/if}}</p>
+          <p class="card-text"><b>Applied: </b>{{#if task.applied}}✅{{/if}}</p>
         </div>
-      </div>
-  </div>
 
-   <div class="row">
-      <div class="col-md-6">
-        <div class="card border-dark mb-3">
-          <div class="card-header">
+      </div>
+    </div>
+  </div>
+  <!--notes-->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card border-dark mb-3">
+        <div class="card-header">
           Notes
-          </div>
-          <form class="note-form">
-            <div class="card-body p-5">
-              <div class="form-group">
-                <input type="form-input" class="form-control" id="add-note" placeholder="Add note...">
-              </div>
-              <button type="submit" class="btn btn-light border border-dark mt-3 note-button" id="{{id}}">Add</button>
-              <hr>
+        </div>
+        <form class="note-form">
+          <div class="card-body p-5">
+            <div class="form-group">
+              <input type="form-input" class="form-control" id="add-note" placeholder="Add note...">
+            </div>
+            <button type="submit" class="btn btn-light border border-dark mt-3 note-button" id="{{id}}">Add</button>
+            <hr>
 
             {{#each notes as |note|}}
             {{> note-details}}
             {{/each}}
 
-          </form>
-        </div>
+        </form>
       </div>
+    </div>
   </div>
 </div>
 
