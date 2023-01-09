@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
   </head>
 
   <body>
@@ -21,10 +21,9 @@
               <a class="nav-link" href="/">Homepage</a>
               {{#if loggedIn}}
               <a class="nav-link" href="/dashboard">My Garden</a>
-              <a class="nav-link" href="/" id="logout">Sign Out</a>
+              <button class="no-button" id="logout">logout</button>
               {{else}}
               <a class="nav-link" href="/login">Sign In</a>
-              <a class="nav-link" href="/login">Sign Up</a>
               {{/if}}
             </div>
           </div>
@@ -35,7 +34,7 @@
   </div>
 
     <!-- Render script for logged in users only -->
-    {{#if logged_in}}
+    {{#if loggedIn}}
     <script src="/js/logout.js"></script>
     {{/if}}
   </body>
