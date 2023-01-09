@@ -111,3 +111,4 @@ const deleteNote = document.getElementsByClassName('delete-note');
   for (let i = 0; i < deleteNote.length; i++) {
     deleteNote[i].addEventListener('click', delNoteHandler)
   }
+
