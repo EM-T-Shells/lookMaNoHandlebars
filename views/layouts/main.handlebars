@@ -15,12 +15,23 @@
   <body class="bg-dark">
       <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
         <h1 class="navbar-brand">Plant Parenthood</h1>
-        {{#if loggedIn}}
-        <button class="no-button" id="logout">logout</button>
+        {{!-- {{#if loggedIn}}
+        <a class="nav-link" href="#" id="logout">Logout</a>
         {{/if}}
+      </nav> --}}
+          <div class="navbar-nav">
+            <a class="nav-link" href="/">Homepage</a>
+            {{#if loggedIn}}
+            <a class="nav-link" href="/dashboard">My Garden</a>
+            <a class="nav-link" href="#" id="logout">Logout</a>
+            {{else}}
+            <a class="nav-link" href="/login">Sign In</a>
+            {{/if}}
+          </div>
+        </div>
       </nav>
 
-      <div class="container">
+  <div class="container">
       {{{body}}}
       </div>
 
