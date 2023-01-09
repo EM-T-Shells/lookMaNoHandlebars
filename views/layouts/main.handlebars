@@ -17,15 +17,15 @@
 
   <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-between">
     <h1 class="display-5">Plant Parenthood</h1>
-    <div class="d-flex">
+    <div class="d-flex align-items-baseline">
       {{!-- <a class="nav-link" href="/">Homepage</a> --}}
       {{#if loggedIn}}
-      <a class="nav-link" href="/dashboard">My Garden</a>
+      <a class="nav-link" href="/">Homepage</a>
       <a class="nav-link" href="#" id="logout">Logout</a>
       {{!-- {{else}}
       <a class="nav-link" href="/login">Sign In</a> --}}
       {{/if}}
-      <p id="current-date"></p>
+      <p id="current-date" class="text-muted"></p>
     </div>
   </nav>
   <div class="container">
