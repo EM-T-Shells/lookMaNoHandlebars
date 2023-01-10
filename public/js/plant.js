@@ -11,15 +11,16 @@ console.log("click")
   const id = document.querySelector(".task-button").getAttribute("id");
 
   const bodyObject = {
-    watered: watered.value === "on" ? 1 : 0,
-    pruned: pruned.value === "on" ? 1 : 0,
-    fertilized: fertilized.value === "on" ? 1 : 0,
-    transplanted: transplanted.value === "on" ? 1 : 0,
-    harvested: harvested.value === "on" ? 1 : 0,
-    applied: applied.value === "on" ? 1 : 0,
+    watered: watered.checked ? true : false,
+    pruned: pruned.checked ? true : false,
+    fertilized: fertilized.checked ? true : false,
+    transplanted: transplanted.checked ? true : false,
+    harvested: harvested.checked ? true : false,
+    applied: applied.checked ? true : false,
     plant_id: id,
   };
 
+  console.log("########################")
   if (
     watered.checked ||
     pruned.checked ||
@@ -57,7 +58,7 @@ console.log("click")
   }
 };
 document
-  .querySelector(".task-button")
+  .querySelector(".task-form")
   .addEventListener("submit", submitTaskHandler);
 
 // add notes
