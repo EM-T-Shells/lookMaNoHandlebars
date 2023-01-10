@@ -9,7 +9,7 @@ router.get('/plants/:id', async (req, res) => {
     const taskCheck = await Task.findAll({ where: { plant_id: req.params.id } })
     const noteCheck = await Note.findAll({ where: { plant_id: req.params.id } })
     let plantData;
-    // the remaining if's check what data was re turned
+    // the remaining if's check what data was returned
     if (!taskCheck.length && !noteCheck.length) {
       plantData = await Plant.findByPk(req.params.id, { include: [{ model: User, attributes: ["username"] }] });
     } else if (taskCheck.length && !noteCheck.length) {
