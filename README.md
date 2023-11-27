@@ -6,7 +6,7 @@
 ## Description
 An app that allows gardeners to manage their plants, their garden tasks, and to record observations.
 
-[LIVE APP - Heroku](https://obscure-mountain-85382.herokuapp.com/)  
+[LIVE APP - Heroku](https://plant-parenthood.herokuapp.com/)  
   
 ## Table of Contents
 - [Screenshots](#screenshots)
